@@ -1,0 +1,18 @@
+name: 'Autograding'
+description: 'Grades the code that was writen'
+inputs:
+  api_url:
+    description: 'the api to call after passing results'
+    required: false
+    default: 'http://host.docker.internal:3000/api/submission/github'
+  short_form:
+    description: 'form of the output'
+    required: false
+    default: false
+outputs:
+  results:
+    description: 'Results of the pytest'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  entrypoint: '/entrypoint.sh'
