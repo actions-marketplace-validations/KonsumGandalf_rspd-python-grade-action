@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# Check out the code
-git clone https://github.com/your-username/your-repo.git
+# Set input parameters
+API_URL="${{ inputs.api_url }}"
+REPO_URL="${{ inputs.repositoryUrl }}"
+ACTOR="${{ inputs.actor }}"
 
 # Set up Python
 python_version="3.x"
@@ -16,7 +18,7 @@ sh -c "$pip_install_cmd"
 
 # Run tests with pytest
 pytest_install_cmd="pip install pytest pytest-cov pytest-json-report"
-pytest_run_cmd="pytest --json-report -v hello_test.py"
+pytest_run_cmd="pytest --json-report -v"
 sh -c "$pytest_install_cmd && $pytest_run_cmd"
 
 CONTENTS=$(cat .report.json)
@@ -25,9 +27,9 @@ CONTENTS=$(cat .report.json)
 curl -X POST \
   -H "Content-Type: application/json" \
   -d '{
-    "repositoryUrl": "git://github.com/OTH-Digital-Skills/lab-04-mario-angie_123",
-    "actor": "angie_123",
-    "repository": "OTH-Digital-Skills/lab-04-mario-angie_123",
+    "repositoryUrl": "'"$REPO_URL"'",
+    "actor": "'"$ACTOR"'",
+    "repository": "'"$REPO_URL"'",
     "submission": "'"$CONTENTS"'"
   }' \
   $API_URL/submission/github

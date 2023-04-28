@@ -5,13 +5,12 @@ inputs:
     description: 'the api to call after passing results'
     required: false
     default: 'http://host.docker.internal:3000/api/submission/github'
-  short_form:
-    description: 'form of the output'
-    required: false
-    default: false
-outputs:
-  results:
-    description: 'Results of the pytest'
+  repositoryUrl:
+    description: 'the repositoryUrl of the actor'
+    required: true
+  actor:
+    description: 'The user the submission is related to'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
