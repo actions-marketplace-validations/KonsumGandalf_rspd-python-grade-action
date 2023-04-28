@@ -1,0 +1,25 @@
+name: GitHub Classroom Workflow
+
+on: [push]
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    name: Autograding
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        cache: [false]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Rspd Python Assignment Report
+        uses: konsumgandalf/rspd-python-assignment-report@v1.0.0
+        with:
+          api_url: 'http://example-api.com/submission/github'
+          repositoryUrl: 'git://github.com/OTH-Digital-Skills/lab-04-mario-angie_123'
+          actor: 'angie_123'
+          repository: 'OTH-Digital-Skills/lab-04-mario-angie_123'
