@@ -1,5 +1,5 @@
-name: 'Autograding'
-description: 'Grades the code that was writen'
+name: 'Rspd Python Assignment Report'
+description: 'Automatically grades submitted python code and sends it to the provided api'
 inputs:
   api_url:
     description: 'the api to call after passing results'
