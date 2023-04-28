@@ -8,6 +8,9 @@ inputs:
   repositoryUrl:
     description: 'the repositoryUrl of the actor'
     required: true
+  repository:
+    description: 'the repository of the actor'
+    required: true
   actor:
     description: 'The user the submission is related to'
     required: true

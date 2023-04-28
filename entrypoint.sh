@@ -3,6 +3,7 @@
 # Set input parameters
 API_URL="${{ inputs.api_url }}"
 REPO_URL="${{ inputs.repositoryUrl }}"
+REPO_URL="${{ inputs.repository }}"
 ACTOR="${{ inputs.actor }}"
 
 # Set up Python
@@ -29,10 +30,10 @@ curl -X POST \
   -d '{
     "repositoryUrl": "'"$REPO_URL"'",
     "actor": "'"$ACTOR"'",
-    "repository": "'"$REPO_URL"'",
+    "repository": "'"$REPO"'",
     "submission": "'"$CONTENTS"'"
   }' \
-  $API_URL/submission/github
+  $API_URL
 
 # Run pytest and output results
 pytest $SHORT_FORM > results.txt
