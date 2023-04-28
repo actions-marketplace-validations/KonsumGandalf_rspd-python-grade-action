@@ -1,5 +1,7 @@
 name: 'Rspd Python Assignment Report'
 description: 'Automatically grades submitted python code and sends it to the provided api'
+icon: 'send'
+color: 'purple'
 inputs:
   api_url:
     description: 'the api to call after passing results'
