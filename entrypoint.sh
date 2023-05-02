@@ -3,28 +3,26 @@
 # Set input parameters
 API_URL="${{ inputs.api_url }}"
 REPO_URL="${{ inputs.repositoryUrl }}"
-REPO_URL="${{ inputs.repository }}"
+REPO="${{ inputs.repository }}"
 ACTOR="${{ inputs.actor }}"
 
-# Set up Python
-python_version="3.x"
-python_setup_cmd="actions/setup-python@v4"
-python_setup_input="python-version=$python_version"
-python_setup_args="--with=$python_setup_cmd --input=$python_setup_input"
-sh -c "$python_setup_args"
+echo "$API_URL"
 
-# Install dependencies
-pip_install_cmd="python -m pip install --upgrade pip"
-sh -c "$pip_install_cmd"
+apt-get install -y python3-pip
 
-# Run tests with pytest
-pytest_install_cmd="pip install pytest pytest-cov pytest-json-report"
-pytest_run_cmd="pytest --json-report -v"
-sh -c "$pytest_install_cmd && $pytest_run_cmd"
+# Install packages with pip
+pip3 install pytest pytest-cov pytest-json-report requests
+python -m pytest --json-report -v --tb=line --json-report-indent=2
+
+pip3 install pytest pytest-cov pytest-json-report
+
+cat .report.json | tr -d '\r\n' | sed 's/[^[:print:]]//g' > .report.json
 
 CONTENTS=$(cat .report.json)
 
-# Call Backend
+#python python_parse.py API_URL REPO_URL REPO ACTOR CONTENTS
+
+
 curl -X POST \
   -H "Content-Type: application/json" \
   -d '{
@@ -33,8 +31,4 @@ curl -X POST \
     "repository": "'"$REPO"'",
     "submission": "'"$CONTENTS"'"
   }' \
-  $API_URL
-
-# Run pytest and output results
-pytest $SHORT_FORM > results.txt
-echo "::set-output name=results::$(cat results.txt)"
+  http://host.docker.internal:3000/api/github/submission
