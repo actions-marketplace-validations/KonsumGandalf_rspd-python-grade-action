@@ -3,6 +3,8 @@ echo "$API_URL" "$REPO_URL" "$REPO" "$ACTOR"
 sudo apt-get update
 apt-get install -y python3-pip
 
+curl -X GET $API_URL
+
 # Install packages with pip
 pip3 install pytest pytest-cov pytest-json-report requests
 
@@ -14,6 +16,7 @@ cat .report.json | tr -d '\r\n' | sed 's/[^[:print:]]//g' > .report_clean.json
 
 CONTENTS=$(cat .report_clean.json)
 echo "$CONTENTS"
+
 
 # Call API to submit report
 curl -X POST \
