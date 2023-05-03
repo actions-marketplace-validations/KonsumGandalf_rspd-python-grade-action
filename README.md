@@ -9,7 +9,7 @@ This action automatically grades submitted `python`code, the results are send to
 Below is an example how to use the workflow
 ```yaml
 - name: Execute Tests and Send Report
-  uses: KonsumGandalf/rspd-python-assignment-report@v1.0.0
+  uses: KonsumGandalf/rspd-python-grade-action@v1
   with:
     api_url: 'http://example-api.com/submission/github'
     repositoryUrl: 'git://github.com/OTH-Digital-Skills/lab-04-mario-angie_123'
