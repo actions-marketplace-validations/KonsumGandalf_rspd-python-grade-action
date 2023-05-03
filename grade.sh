@@ -18,7 +18,7 @@ echo "$CONTENTS"
 # Call API to submit report
 curl -X POST \
   -H "Content-Type: application/json" \
-  -F submission=$CONTENTS \
+  -F submission=@.report_clean.json \
   -F repositoryUrl=$REPO_URL \
   -F actor=$ACTOR \
   -F repository=$REPO \
