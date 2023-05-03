@@ -17,7 +17,7 @@ python -m pytest --json-report -v --json-report-indent=2
 # Remove non-printable characters from report
 # cat .report.json | tr -d '\r\n' | sed 's/[^[:print:]]//g; s|[\\/]||g' > .report_clean.json
 
-CONTENTS=$(cat .report.json)
+CONTENTS=$(cat .report.json | jq .)
 echo "$CONTENTS"
 
 echo '{
