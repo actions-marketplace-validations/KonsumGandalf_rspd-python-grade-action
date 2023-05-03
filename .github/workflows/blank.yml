@@ -19,12 +19,8 @@ jobs:
         cache: [false]
     steps:
       - uses: actions/checkout@v2
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: 'david_schmidt_privat@outlook.com'
-          password: 'Skywalker2001?'
-      - uses: konsumgandalf/rspd-python-assignment-report@v1.1.0
+      - name: Rspd Python Assignment Report
+        uses: KonsumGandalf/rspd-assignment-grader@main
         with:
           api_url: 'http://example-api.com/submission/github'
           repositoryUrl: 'git://github.com/OTH-Digital-Skills/lab-04-mario-angie_123'
