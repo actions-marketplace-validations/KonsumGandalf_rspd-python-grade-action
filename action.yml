@@ -20,6 +20,8 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    - run: chmod +x ${{ github.action_path }}/setup.sh && ${{ github.action_path }}/setup.sh
+      shell: bash
     - run: chmod +x ${{ github.action_path }}/grade.sh && ${{ github.action_path }}/grade.sh
       shell: bash
       env:
@@ -27,3 +29,5 @@ runs:
         REPO_URL: ${{ inputs.repositoryUrl }}
         REPO: ${{ inputs.repository }}
         ACTOR: ${{ inputs.actor }}
+    - run: chmod +x ${{ github.action_path }}/api-request.py && ${{ github.action_path }}/api-request.py
+      shell: bash
