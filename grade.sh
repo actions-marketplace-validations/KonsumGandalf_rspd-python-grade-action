@@ -4,9 +4,9 @@
 API_URL="${{ inputs.api_url }}"
 REPO_URL="${{ inputs.repositoryUrl }}"
 REPO="${{ inputs.repository }}"
-ACTOR="${{ inputs.actor }}"
+REPO_URL="${{ inputs.actor }}"
 
-echo "$API_URL"
+echo "$API_URL" "$REPO_URL" "$REPO_URL" "$REPO_URL"
 
 apt-get install -y python3-pip
 
@@ -21,9 +21,9 @@ cat .report.json | tr -d '\r\n' | sed 's/[^[:print:]]//g' > .report.json
 CONTENTS=$(cat .report.json)
 
 #python python_parse.py API_URL REPO_URL REPO ACTOR CONTENTS
+echo "CONTENTS"
 
-
-curl -X POST \
+curl -v -X POST \
   -H "Content-Type: application/json" \
   -d '{
     "repositoryUrl": "'"$REPO_URL"'",
@@ -31,4 +31,4 @@ curl -X POST \
     "repository": "'"$REPO"'",
     "submission": "'"$CONTENTS"'"
   }' \
-  "'"$API_URL"'"
+  $API_URL
