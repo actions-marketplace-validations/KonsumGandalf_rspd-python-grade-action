@@ -1,6 +1,4 @@
-echo "$API_URL" "$REPO_URL" "$REPO" "$ACTOR"
 
-curl -X GET $API_URL
 
 
 # Generate JSON report
