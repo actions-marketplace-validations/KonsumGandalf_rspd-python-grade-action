@@ -31,4 +31,4 @@ curl -X POST \
     "repository": "'"$REPO"'",
     "submission": "'"$CONTENTS"'"
   }' \
-  http://host.docker.internal:3000/api/github/submission
+  "'"$API_URL"'"

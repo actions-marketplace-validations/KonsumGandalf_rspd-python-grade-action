@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Rspd Python Assignment Report
-        uses: KonsumGandalf/rspd-assignment-grader@main
+        uses: KonsumGandalf/rspd-assignment-grader@v3
         with:
           api_url: 'http://example-api.com/submission/github'
           repositoryUrl: 'git://github.com/OTH-Digital-Skills/lab-04-mario-angie_123'

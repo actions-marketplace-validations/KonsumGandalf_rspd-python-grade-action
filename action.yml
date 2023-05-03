@@ -1,4 +1,4 @@
-name: 'Rspd Python Assignment Report'
+name: 'Rspd Assignment Report'
 description: 'Automatically grades submitted python code and sends it to the provided api'
 branding: 
   icon: 'send'
@@ -22,5 +22,5 @@ runs:
   steps:
     - run: echo Hello ${{ inputs.api_url }}.
       shell: bash
-    - run: grade.sh
+    - run: chmod +x grade.sh
       shell: bash
