@@ -1,7 +1,5 @@
 echo "$API_URL" "$REPO_URL" "$REPO" "$ACTOR"
 
-sudo apt-get update
-apt-get install -y python3-pip
 
 curl -X GET $API_URL
 
@@ -13,6 +11,10 @@ curl -H "Content-Type: application/json" \
     "submission": "bneadclkanwdlokanwdlkn!"
   }' \
   -v $API_URL
+
+
+sudo apt-get update
+apt-get install -y python3-pip
 
 # Install packages with pip
 pip3 install pytest pytest-cov pytest-json-report requests
