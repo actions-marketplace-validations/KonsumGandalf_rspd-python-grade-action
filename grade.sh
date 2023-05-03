@@ -8,11 +8,7 @@ ACTOR="OTH-Digital-Skills/lab-04-mario-angie_123"
 
 echo "$API_URL" "$REPO_URL" "$REPO_URL" "$REPO_URL"
 
-curl -X POST \
-  -d '{
-      "test": "test"
-  }' \
-  http://host.docker.internal:3000/api/submission/github
+curl -X GET http://host.docker.internal:3000/api/submission/github
 
 sudo apt-get update
 apt-get install -y python3-pip
