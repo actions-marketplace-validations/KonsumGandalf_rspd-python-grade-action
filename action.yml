@@ -1,4 +1,4 @@
-name: 'Rspd Assignment Report'
+name: 'Rspd Python Grade'
 description: 'Automatically grades submitted python code and sends it to the provided api'
 branding: 
   icon: 'send'
@@ -32,4 +32,3 @@ runs:
         REPO_URL: ${{ inputs.repositoryUrl }}
         REPO: ${{ inputs.repository }}
         ACTOR: ${{ inputs.actor }}
-        
