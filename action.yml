@@ -1,4 +1,4 @@
-name: 'Rspd Python Assignment Report'
+name: 'Rspd Assignment Report'
 description: 'Automatically grades submitted python code and sends it to the provided api'
 branding: 
   icon: 'send'
