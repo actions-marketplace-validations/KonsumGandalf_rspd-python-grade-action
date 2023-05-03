@@ -25,7 +25,7 @@ echo '{
     "actor": "'"$ACTOR"'",
     "repository": "'"$REPO"'",
     "submission": "'"$CONTENTS"'"
-}' > submission.json
+}' > .submission.json
 
 TEST=$(cat .submission.json)
 echo "$TEST"
