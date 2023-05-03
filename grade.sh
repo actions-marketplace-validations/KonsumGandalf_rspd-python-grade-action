@@ -31,10 +31,7 @@ TEST=$(cat .submission.json)
 echo "$TEST"
 
 
-curl -v -X POST \
-  -H "Content-Type: multipart/form-data" \
-  -F "data=@.submission.json" \
-  $API_URL
+curl -v -X POST "Content-Type: application/json" -d @submission.json $API_URL
 
 # Call API to submit report
 
