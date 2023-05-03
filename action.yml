@@ -7,7 +7,7 @@ inputs:
   api_url:
     description: 'the api to call after passing results'
     required: false
-    default: 'http://host.docker.internal:3000/api/submission/github'
+    default: 'http://host.docker.internal:3000/api/github/submission'
   repositoryUrl:
     description: 'the repositoryUrl of the actor'
     required: true
