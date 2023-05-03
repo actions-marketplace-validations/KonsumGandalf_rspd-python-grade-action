@@ -17,7 +17,7 @@ python -m pytest --json-report -v --json-report-indent=2
 # Remove non-printable characters from report
 # cat .report.json | tr -d '\r\n' | sed 's/[^[:print:]]//g; s|[\\/]||g' > .report_clean.json
 
-CONTENTS=$(cat .report.json | jq .)
+
 
 #echo '{
 #    "repositoryUrl": "'"$REPO_URL"'",
@@ -35,7 +35,7 @@ CONTENTS=$(cat .report.json | jq .)
 #
 #cat .submission.json | jq -s '.[0] | {repositoryUrl, actor, repository, submission}' | curl -v -X POST "Content-Type: application/json" -d @- $API_URL
 
-PAYLOAD=$(jq -n --arg repoUrl "$REPO_URL" --arg actor "$ACTOR" --arg repo "$REPO" --arg contents "$CONTENTS" '{repositoryUrl: $repoUrl, actor: $actor, repository: $repo, submission: $contents}')
+PAYLOAD=$(python -m pytest --json-report | jq -n --arg repoUrl "$REPO_URL" --arg actor "$ACTOR" --arg repo "$REPO" --arg contents "$(jq .)" '{repositoryUrl: $repoUrl, actor: $actor, repository: $repo, submission: $contents}')
 
 # Send POST request with payload
 echo "$PAYLOAD" | curl -v -X POST -H "Content-Type: application/json" -d @- "$API_URL"
