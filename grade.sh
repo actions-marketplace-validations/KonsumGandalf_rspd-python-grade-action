@@ -25,6 +25,6 @@ curl -X POST \
     "repositoryUrl": "'"$REPO_URL"'",
     "actor": "'"$ACTOR"'",
     "repository": "'"$REPO"'",
-    "submission": "'"$(< .report_clean.json)"'"
+    "submission": "'"$CONTENTS"'"
   }' \
   -v $API_URL
