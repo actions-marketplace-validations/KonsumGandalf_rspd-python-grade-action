@@ -26,12 +26,15 @@ echo '{
     "repository": "'"$REPO"'",
     "submission": "'"$CONTENTS"'"
 }' > .submission.json
+#
+#TEST=$(cat .submission.json)
+#echo "$TEST"
+#
+#
+#curl -v -X POST "Content-Type: application/json" -d @.submission.json $API_URL
+cat .submission.json | jq -s '.[0] | {repositoryUrl, actor, repository, submission}'
 
-TEST=$(cat .submission.json)
-echo "$TEST"
-
-
-curl -v -X POST "Content-Type: application/json" -d @.submission.json $API_URL
+cat .submission.json | jq -s '.[0] | {repositoryUrl, actor, repository, submission}' | curl -v -X POST "Content-Type: application/json" -d @- $API_URL
 
 # Call API to submit report
 
