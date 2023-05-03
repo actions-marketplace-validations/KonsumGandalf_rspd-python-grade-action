@@ -1,5 +1,5 @@
 # rspd-send-report
-This action automatically grades submitted `python`code, the results are send to the provide api by curl.
+This action automatically grades submitted `python`code, the results are send to the provide api by post request.
 
 # Features
 - Added `api_url` to allow for customization of the API endpoint.
