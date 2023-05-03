@@ -20,8 +20,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Rspd Python Assignment Report
-        uses: KonsumGandalf/rspd-python-grade-action@v1
+        if: always()
+        uses: konsumgandalf/rspd-python-grade-action@v1
         with:
           repositoryUrl: 'git://github.com/OTH-Digital-Skills/lab-04-mario-angie_123'
           actor: 'angie_123'
           repository: 'OTH-Digital-Skills/lab-04-mario-angie_123'
+      - uses: actions/checkout@v2
