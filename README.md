@@ -2,7 +2,7 @@
 This action automatically grades submitted `python`code, the results are send to the provide api by curl.
 
 # Features
-- Added api_url to allow for customization of the API endpoint.
+- Added `api_url` to allow for customization of the API endpoint.
 - Added ability to pass in `repositoryUrl`, `repository ` and `actor` parameters 
 
 # Usage
