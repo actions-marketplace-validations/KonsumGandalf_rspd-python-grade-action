@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Set input parameters
-API_URL="http://host.docker.internal:3000/api/submission/github"
-REPO_URL="OTH-Digital-Skills/lab-04-mario-angie_123"
-REPO="OTH-Digital-Skills/lab-04-mario-angie_123"
-ACTOR="OTH-Digital-Skills/lab-04-mario-angie_123"
+API_URL="${{ inputs.api_url }}"
+REPO_URL="${{ inputs.repositoryUrl }}"
+REPO="${{ inputs.repository }}"
+ACTOR="${{ inputs.actor }}"
 
 echo "$API_URL" "$REPO_URL" "$REPO_URL" "$REPO_URL"
 
-curl -X GET http://host.docker.internal:3000/api/submission/github
+curl -X GET $API_URL
 
 sudo apt-get update
 apt-get install -y python3-pip
