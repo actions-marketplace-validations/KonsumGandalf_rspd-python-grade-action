@@ -29,7 +29,7 @@ curl -X POST \
   -F "repositoryUrl=$REPO_URL" \
   -F "actor=$ACTOR" \
   -F "repository=$REPO" \
-  $API_URL
+  -v $API_URL
 
 # Call API to submit report
 
