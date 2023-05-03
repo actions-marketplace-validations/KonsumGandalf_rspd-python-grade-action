@@ -11,10 +11,13 @@ pip3 install pytest pytest-cov pytest-json-report requests
 # Generate JSON report
 python -m pytest --json-report -v --json-report-indent=2
 
-CONTENTS=$(cat .report.json | jq .)
-echo "$CONTENTS"
+python api-request.py
 
-cat .submission.json | jq -s '.[0] | {repositoryUrl, actor, repository, submission}' | curl -v -X POST -H "Content-Type: application/json" -d @- "$API_URL"
+#CONTENTS=$(cat .report.json | jq .)
+#
+#cat .submission.json | jq -s '.[0] | {repositoryUrl, actor, repository, submission}'
+#
+#cat .submission.json | jq -s '.[0] | {repositoryUrl, actor, repository, submission}' | curl -v -X POST "Content-Type: application/json" -d @- $API_URL
 
 # Call API to submit report
 
