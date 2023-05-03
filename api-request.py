@@ -3,6 +3,7 @@ import requests
 import os
 import re
 
+# Import environmental variables
 api_url = os.environ.get("API_URL")
 repo_url = os.environ.get("REPO_URL")
 repo = os.environ.get("REPO")
