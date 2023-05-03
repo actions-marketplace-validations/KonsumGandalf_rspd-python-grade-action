@@ -6,7 +6,7 @@ curl -X GET $API_URL
 # Generate JSON report
 python -m pytest --json-report -v --json-report-indent=2
 
-python api-request.py
+
 
 #CONTENTS=$(cat .report.json | jq .)
 #
