@@ -3,9 +3,6 @@ echo "$API_URL" "$REPO_URL" "$REPO" "$ACTOR"
 
 curl -X GET $API_URL
 
-curl -H "Content-Type: application/json" \
-  -F "someName=@.report_clean.json.json;type=application/json" \
-  -v $API_URL
 
 
 sudo apt-get update
@@ -20,15 +17,23 @@ python -m pytest --json-report -v --tb=line --json-report-indent=2
 # Remove non-printable characters from report
 cat .report.json | tr -d '\r\n' | sed 's/[^[:print:]]//g' > .report_clean.json
 
-#CONTENTS=$(cat .report_clean.json)
-#echo "$CONTENTS"
+CONTENTS=$(cat .report_clean.json)
+echo "$CONTENTS"
+
+echo '{
+    "repositoryUrl": "'"$REPO_URL"'",
+    "actor": "'"$ACTOR"'",
+    "repository": "'"$REPO"'",
+    "submission": "'"$CONTENTS"'"
+}' > submission.json
+
+TEST=$(cat .submission.json)
+echo "$TEST"
+
 
 curl -v -X POST \
-  -H "Content-Type: application/json" \
-  -F "submission=@./.report.json" \
-  -F "repositoryUrl=$REPO_URL" \
-  -F "actor=$ACTOR" \
-  -F "repository=$REPO" \
+  -H "Content-Type: multipart/form-data" \
+  -F "data=@submission.json" \
   $API_URL
 
 # Call API to submit report
