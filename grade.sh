@@ -12,7 +12,7 @@ curl -H "Content-Type: application/json" \
     "repository": "'"$REPO"'",
     "submission": "bneadclkanwdlokanwdlkn!"
   }' \
-  $API_URL
+  -v $API_URL
 
 # Install packages with pip
 pip3 install pytest pytest-cov pytest-json-report requests
