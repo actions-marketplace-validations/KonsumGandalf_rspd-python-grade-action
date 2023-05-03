@@ -4,12 +4,7 @@ echo "$API_URL" "$REPO_URL" "$REPO" "$ACTOR"
 curl -X GET $API_URL
 
 curl -H "Content-Type: application/json" \
-  -d '{
-    "repositoryUrl": "'"$REPO_URL"'",
-    "actor": "'"$ACTOR"'",
-    "repository": "'"$REPO"'",
-    "submission": "'"$(< .report_clean.json)"'"
-  }' \
+  -F "someName=@.report_clean.json.json;type=application/json"
   -v $API_URL
 
 
