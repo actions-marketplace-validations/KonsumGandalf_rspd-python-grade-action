@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Rspd Python Assignment Report
-        uses: KonsumGandalf/rspd-assignment-grader@v4
+        uses: KonsumGandalf/rspd-assignment-grader@v5
         with:
           repositoryUrl: 'git://github.com/OTH-Digital-Skills/lab-04-mario-angie_123'
           actor: 'angie_123'

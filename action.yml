@@ -22,5 +22,6 @@ runs:
   steps:
     - run: echo Hello ${{ inputs.api_url }}.
       shell: bash
-    - run: chmod +x grade.sh
+    - run: chmod +x ./grade.sh
+            ./grade.sh
       shell: bash
