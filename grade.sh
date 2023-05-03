@@ -15,7 +15,7 @@ pip3 install pytest pytest-cov pytest-json-report requests
 python -m pytest --json-report -v --json-report-indent=2
 
 # Remove non-printable characters from report
-cat .report.json | tr -d '\r\n' | sed 's/[^[:print:]]//g' > .report_clean.json
+cat .report.json | tr -d '\r\n' | sed 's/[^[:print:]]//g; s|[\\/]||g' > .report_clean.json
 
 CONTENTS=$(cat .report_clean.json)
 echo "$CONTENTS"
