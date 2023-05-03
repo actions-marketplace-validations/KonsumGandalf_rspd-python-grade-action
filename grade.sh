@@ -23,6 +23,13 @@ cat .report.json | tr -d '\r\n' | sed 's/[^[:print:]]//g' > .report_clean.json
 CONTENTS=$(cat .report_clean.json)
 echo "$CONTENTS"
 
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -F "submission=@./.report_clean.json" \
+  -F "repositoryUrl=$REPO_URL" \
+  -F "actor=$ACTOR" \
+  -F "repository=$REPO" \
+  $API_URL
 
 # Call API to submit report
 
