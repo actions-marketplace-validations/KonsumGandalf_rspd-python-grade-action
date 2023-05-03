@@ -1,13 +1,14 @@
 #!/bin/bash
 
 # Set input parameters
-API_URL="${{ inputs.api_url }}"
-REPO_URL="${{ inputs.repositoryUrl }}"
-REPO="${{ inputs.repository }}"
-REPO_URL="${{ inputs.actor }}"
+API_URL="http://host.docker.internal:3000/api/submission/github"
+REPO_URL="OTH-Digital-Skills/lab-04-mario-angie_123"
+REPO="OTH-Digital-Skills/lab-04-mario-angie_123"
+ACTOR="OTH-Digital-Skills/lab-04-mario-angie_123"
 
 echo "$API_URL" "$REPO_URL" "$REPO_URL" "$REPO_URL"
 
+sudo apt-get update
 apt-get install -y python3-pip
 
 # Install packages with pip
@@ -21,9 +22,9 @@ cat .report.json | tr -d '\r\n' | sed 's/[^[:print:]]//g' > .report.json
 CONTENTS=$(cat .report.json)
 
 #python python_parse.py API_URL REPO_URL REPO ACTOR CONTENTS
-echo "CONTENTS"
+echo "$CONTENTS"
 
-curl -v -X POST \
+curl -X POST \
   -H "Content-Type: application/json" \
   -d '{
     "repositoryUrl": "'"$REPO_URL"'",
@@ -32,3 +33,4 @@ curl -v -X POST \
     "submission": "'"$CONTENTS"'"
   }' \
   $API_URL
+
