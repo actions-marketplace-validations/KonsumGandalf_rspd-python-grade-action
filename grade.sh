@@ -1,11 +1,3 @@
-#!/bin/bash
-
-# Set input parameters
-API_URL="${{ inputs.api_url }}"
-REPO_URL="${{ inputs.repositoryUrl }}"
-REPO="${{ inputs.repository }}"
-ACTOR="${{ inputs.actor }}"
-
 echo "$API_URL" "$REPO_URL" "$REPO_URL" "$REPO_URL"
 
 curl -X GET $API_URL
