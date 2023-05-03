@@ -12,7 +12,7 @@ apt-get install -y python3-pip
 pip3 install pytest pytest-cov pytest-json-report requests
 
 # Generate JSON report
-python -m pytest --json-report -v --tb=line --json-report-indent=2
+python -m pytest --json-report -v --json-report-indent=2
 
 # Remove non-printable characters from report
 cat .report.json | tr -d '\r\n' | sed 's/[^[:print:]]//g' > .report_clean.json
