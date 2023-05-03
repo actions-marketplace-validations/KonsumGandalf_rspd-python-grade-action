@@ -1,0 +1,138 @@
+﻿{
+  "created": 1682755283.5293505,
+  "duration": 0.09688043594360352,
+  "exitcode": 1,
+  "root": "C:\\Users\\david\\github-classroom\\Davids-Science-School\\autograding-test-test-user-187",
+  "environment": {
+    "Python": "3.11.0",
+    "Platform": "Windows-10-10.0.19044-SP0",
+    "Packages": {
+      "pytest": "7.2.2",
+      "pluggy": "1.0.0"
+    },
+    "Plugins": {
+      "json-report": "1.5.0",
+      "metadata": "2.0.4"
+    },
+    "JAVA_HOME": "C:\\Users\\david\\.jdks\\corretto-11.0.17"
+  },
+  "summary": {
+    "passed": 1,
+    "failed": 2,
+    "total": 3,
+    "collected": 3
+  },
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "hello_test.py",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "nodeid": "hello_test.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "hello_test.py::test_hello",
+          "type": "Function",
+          "lineno": 2
+        },
+        {
+          "nodeid": "hello_test.py::test_hello2",
+          "type": "Function",
+          "lineno": 5
+        },
+        {
+          "nodeid": "hello_test.py::test_hello3",
+          "type": "Function",
+          "lineno": 8
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "nodeid": "hello_test.py::test_hello",
+      "lineno": 2,
+      "outcome": "passed",
+      "keywords": [
+        "test_hello",
+        "hello_test.py",
+        "autograding-test-test-user-187"
+      ],
+      "setup": {
+        "duration": 0.00043399998685345054,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.0003223999810870737,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0004040999920107424,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "hello_test.py::test_hello2",
+      "lineno": 5,
+      "outcome": "failed",
+      "keywords": [
+        "test_hello2",
+        "hello_test.py",
+        "autograding-test-test-user-187"
+      ],
+      "setup": {
+        "duration": 0.0003836000105366111,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.0006330000178422779,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\david\\github-classroom\\Davids-Science-School\\autograding-test-test-user-187\\hello_test.py",
+          "lineno": 7,
+          "message": "AssertionError: falsche Nummer\nassert 'Hello World!' == 'Hello World2!'\n  - Hello World2!\n  ?            -\n  + Hello World!"
+        },
+        "longrepr": "E   AssertionError: falsche Nummer\n    assert 'Hello World!' == 'Hello World2!'\n      - Hello World2!\n      ?            -\n      + Hello World!"
+      },
+      "teardown": {
+        "duration": 0.0003552999987732619,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "hello_test.py::test_hello3",
+      "lineno": 8,
+      "outcome": "failed",
+      "keywords": [
+        "test_hello3",
+        "hello_test.py",
+        "autograding-test-test-user-187"
+      ],
+      "setup": {
+        "duration": 0.00032160000409930944,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00040950000402517617,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\david\\github-classroom\\Davids-Science-School\\autograding-test-test-user-187\\hello_test.py",
+          "lineno": 10,
+          "message": "AssertionError: logically false\nassert True == False"
+        },
+        "longrepr": "E   AssertionError: logically false\n    assert True == False"
+      },
+      "teardown": {
+        "duration": 0.00032839999767020345,
+        "outcome": "passed"
+      }
+    }
+  ]
+}

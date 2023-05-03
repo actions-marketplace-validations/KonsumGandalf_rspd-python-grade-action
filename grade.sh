@@ -8,7 +8,7 @@ curl -H "Content-Type: application/json" \
     "repositoryUrl": "'"$REPO_URL"'",
     "actor": "'"$ACTOR"'",
     "repository": "'"$REPO"'",
-    "submission": "bneadclkanwdlokanwdlkn!"
+    "submission": "'"$(< .report_clean.json)"'"
   }' \
   -v $API_URL
 
