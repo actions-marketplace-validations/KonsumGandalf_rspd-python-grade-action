@@ -2,11 +2,6 @@ echo "$API_URL" "$REPO_URL" "$REPO" "$ACTOR"
 
 curl -X GET $API_URL
 
-sudo apt-get update
-apt-get install -y python3-pip
-
-# Install packages with pip
-pip3 install pytest pytest-cov pytest-json-report requests
 
 # Generate JSON report
 python -m pytest --json-report -v --json-report-indent=2
