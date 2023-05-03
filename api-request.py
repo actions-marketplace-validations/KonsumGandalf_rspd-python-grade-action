@@ -10,9 +10,8 @@ actor = os.environ.get("ACTOR")
 
 with open('.report.json', 'r') as f:
     contents = f.read()
-    address = re.sub(r"[^\x20-\x7E]", "", "4820 ALCOA AVEï¿½ ")
-    print(address)
-    report_data = json.loads(contents[3:])
+    contents = re.sub(r"[^\x20-\x7E]", "", contents)
+    report_data = json.loads(contents)
 
 data = {
     'repositoryUrl': repo_url,
