@@ -11,7 +11,7 @@ echo "$API_URL" "$REPO_URL" "$REPO_URL" "$REPO_URL"
 curl -X POST \
   -d '{
       "test": "test"
-  }'
+  }' \
   http://host.docker.internal:3000/api/submission/github
 
 sudo apt-get update
