@@ -18,6 +18,9 @@ inputs:
     description: 'The user the submission is related to'
     required: true
 runs:
-  using: 'docker'
-  image: 'python:3.9'
-  entrypoint: '/bin/bash'
+  using: 'composite'
+  steps:
+    - run: echo Hello ${{ inputs.api_url }}.
+      shell: bash
+    - run: grade.sh
+      shell: bash
