@@ -1,11 +1,7 @@
 import json
 import requests
 import os
-
-# Read report data from .report.json file
-
-
-
+import re
 
 api_url = os.environ.get("API_URL")
 repo_url = os.environ.get("REPO_URL")
@@ -13,9 +9,11 @@ repo = os.environ.get("REPO")
 actor = os.environ.get("ACTOR")
 
 with open('.report.json', 'r') as f:
-    report_data = json.load(f)
+    contents = f.read()
+    address = re.sub(r"[^\x20-\x7E]", "", "4820 ALCOA AVEï¿½ ")
+    print(address)
+    report_data = json.loads(contents[3:])
 
-# Create dictionary with extracted data
 data = {
     'repositoryUrl': repo_url,
     'actor': actor,
