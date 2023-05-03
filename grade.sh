@@ -5,6 +5,15 @@ apt-get install -y python3-pip
 
 curl -X GET $API_URL
 
+curl -H "Content-Type: application/json" \
+  -d '{
+    "repositoryUrl": "'"$REPO_URL"'",
+    "actor": "'"$ACTOR"'",
+    "repository": "'"$REPO"'",
+    "submission": "bneadclkanwdlokanwdlkn!"
+  }' \
+  $API_URL
+
 # Install packages with pip
 pip3 install pytest pytest-cov pytest-json-report requests
 
@@ -19,12 +28,4 @@ echo "$CONTENTS"
 
 
 # Call API to submit report
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -d '{
-    "repositoryUrl": "'"$REPO_URL"'",
-    "actor": "'"$ACTOR"'",
-    "repository": "'"$REPO"'",
-    "submission": "'"$CONTENTS"'"
-  }' \
-  -v $API_URL
+
