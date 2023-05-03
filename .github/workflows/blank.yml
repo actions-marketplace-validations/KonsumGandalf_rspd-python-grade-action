@@ -20,18 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Rspd Python Assignment Report
-        uses: KonsumGandalf/rspd-assignment-grader@v6
+        uses: KonsumGandalf/rspd-python-grade-action@v1
         with:
           repositoryUrl: 'git://github.com/OTH-Digital-Skills/lab-04-mario-angie_123'
           actor: 'angie_123'
           repository: 'OTH-Digital-Skills/lab-04-mario-angie_123'
-      - name: Run script file
-        run: |
-          chmod +x grade.sh
-            ./grade.sh
-        shell: bash
-        env:
-          API_URL: 'http://host.docker.internal:3000/api/submission/github'
-          REPO_URL: 'OTH-Digital-Skills/lab-04-mario-angie_123'
-          REPO: 'OTH-Digital-Skills/lab-04-mario-angie_123'
-          ACTOR: 'OTH-Digital-Skills/lab-04-mario-angie_123'
+    
