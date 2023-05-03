@@ -13,6 +13,7 @@ python -m pytest --json-report -v --tb=line --json-report-indent=2
 cat .report.json | tr -d '\r\n' | sed 's/[^[:print:]]//g' > .report_clean.json
 
 CONTENTS=$(cat .report_clean.json)
+echo "$CONTENTS"
 
 # Call API to submit report
 curl -X POST \
