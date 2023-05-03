@@ -24,7 +24,7 @@ runs:
       shell: bash
     - run: pytest --json-report -v --json-report-indent=2
       shell: bash
-    - run: chmod +x ${{ github.action_path }}/api-request.py && ${{ github.action_path }}/api-request.py
+    - run: python ${{ github.action_path }}/api-request.py
       shell: bash
       if: always()
       env:
