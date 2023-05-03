@@ -26,6 +26,7 @@ runs:
       shell: bash
     - run: chmod +x ${{ github.action_path }}/api-request.py && ${{ github.action_path }}/api-request.py
       shell: bash
+      if: always
       env:
         API_URL: ${{ inputs.api_url }}
         REPO_URL: ${{ inputs.repositoryUrl }}
